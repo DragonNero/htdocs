@@ -11,6 +11,17 @@ if(isset($_POST["submit"])) {
    } else {
      die("database connection failed");
    }
+   $query = "INSERT INTO users(username, password)";
+   $query .= "VALUES ('$username', '$password') ";
+
+   $result = mysqli_query($connection, $query);
+
+   if(!$result) {
+     die("query failed");
+   }
+
+
+
 //
 //    if ($username && $password) {
 //      echo $username;
@@ -18,6 +29,10 @@ if(isset($_POST["submit"])) {
 //    } else {
 //      echo "please fill your password and username";
 //    }
+
+
+
+
 }
 
 ?>
