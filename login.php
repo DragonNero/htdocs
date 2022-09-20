@@ -1,3 +1,28 @@
+<?php
+
+if(isset($_POST["submit"])) {
+   $username = $_POST["username"];
+   $password = $_POST["password"];
+
+   $connection = mysqli_connect('localhost', 'root', '', 'login');
+
+   if($connection) {
+     echo "we are connected";
+   } else {
+     die("database connection failed");
+   }
+//
+//    if ($username && $password) {
+//      echo $username;
+//      echo $password;
+//    } else {
+//      echo "please fill your password and username";
+//    }
+}
+
+?>
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -7,18 +32,22 @@
 
 <body>
   <div class="container">
-    <div class="col-s-6">
+    <div class="col-sm-6">
       <form class="" action="login.php" method="post">
         <div class="form-group">
           <label for="username">Username</label>
+          <br>
           <input type="text" name="username" value="" class="form-control">
 
         </div>
+        <br>
         <div class="form-group">
           <label for="password">Password</label>
+          <br>
           <input type="text" name="password" value="" class="password">
 
         </div>
+        <br>
 
         <input class="btn btn-primary" type="submit" name="submit" value="Submit">
 
@@ -28,10 +57,7 @@
 
   </div>
 
-  <?php
 
-
-  ?>
 
 
 </body>
