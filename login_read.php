@@ -34,8 +34,19 @@
 
 <?php
 while($row = mysqli_fetch_assoc($result)) {
-print_r($row);
 
+  ?>
+  <pre>
+
+  </pre>
+
+  <?php
+print_r($row);
+  ?>
+  <pre>
+
+  </pre>
+<?php
 }
 ?>
 
