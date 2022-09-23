@@ -25,6 +25,29 @@
 <body>
   <div class="container">
     <div class="col-sm-6">
+      <form class="" action="login.php" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" value="" class="form-control">
+
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" name="password" value="" class="password">
+
+        </div>
+        <div class="form-group">
+          <select name="" id="">
+          <option value="">1</option>
+
+        </div>
+        <div class="">
+          <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+        </div>
+
+
+
+      </form>
 
 <?php
 while($row = mysqli_fetch_assoc($result)) {
