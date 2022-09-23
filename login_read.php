@@ -1,13 +1,7 @@
 <?php
+  include "db.php";
 
 
-   $connection = mysqli_connect('localhost', 'root', '', 'login');
-
-   if($connection) {
-     echo "we are connected";
-   } else {
-     die("database connection failed");
-   }
    $query = "SELECT * FROM users";
 
    $result = mysqli_query($connection, $query);
