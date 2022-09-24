@@ -2,9 +2,7 @@
 
 $connection = mysqli_connect('localhost', 'root', '', 'login');
 
-if($connection) {
-  echo "we are connected";
-} else {
+if(!$connection) {
   die("database connection failed");
 }
 
