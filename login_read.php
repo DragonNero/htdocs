@@ -1,16 +1,13 @@
 <?php
   include "db.php";
 
+  $query = "SELECT * FROM users";
 
-   $query = "SELECT * FROM users";
+  $result = mysqli_query($connection, $query);
 
-   $result = mysqli_query($connection, $query);
-
-   if(!$result) {
-     die("query failed");
-   }
-
-
+  if(!$result) {
+    die("query failed");
+  }
 
 ?>
 
@@ -29,51 +26,31 @@
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" name="username" value="" class="form-control">
-
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="text" name="password" value="" class="password">
-
+            <label for="password">Password</label>
+          <input type="password" name="password" value="" class="form-control">
         </div>
         <div class="form-group">
-          <select name="" id="">
-          <option value="">1</option>
-
+          <label for="id">Id</label>
+          <select name="id" id="id" class="form-control">
+            <option value="">1</option>
+          </select>
         </div>
         <div class="">
           <input class="btn btn-primary" type="submit" name="submit" value="UPDATE">
         </div>
-
-
-
       </form>
 
-<?php
-while($row = mysqli_fetch_assoc($result)) {
-
-  ?>
-  <pre>
-
-  </pre>
-
-  <?php
-print_r($row);
-  ?>
-  <pre>
-
-  </pre>
-<?php
-}
-?>
-
-
+      <?php
+        // while($row = mysqli_fetch_assoc($result)) {
+          // echo "<pre>";
+          // print_r($row);
+        //   echo "</pre>";
+        // }
+      ?>
     </div>
-
   </div>
-
-
-
 
 </body>
 </html>
