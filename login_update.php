@@ -1,13 +1,6 @@
 <?php
   include "db.php";
-
-  $query = "SELECT * FROM users";
-
-  $result = mysqli_query($connection, $query);
-
-  if(!$result) {
-    die("query failed");
-  }
+  include "functions.php";
 
 ?>
 
@@ -34,17 +27,8 @@
         <div class="form-group">
           <label for="id">Id</label>
           <select name="id" id="id" class="form-control">
-            <?php while($row = mysqli_fetch_assoc($result)) {
-              $id = $row['id'];
-              echo "<option value='$id'>$id</option>";
-            // $query = "SELECT * FROM users";
-            //
-            // $result = mysqli_query($connection, $query);
-            //
-            // if(!$result) {
-            //   die("query failed");
-            // }
-            }
+            <?php
+            showAllData();
             ?>
           </select>
         </div>
