@@ -13,16 +13,29 @@
 <?php
 class Car {
 
+  var $wheels = 4;
+  var $hood = 1;
+  var $engine = 1;
+  var $doors = 4;
+
   function MoveWheels() {
-    echo "Moving wheels";
+    // echo "Moving wheels";
+    $this->wheels = 10;
 
   }
 }
 
-if(method_exists("Car", "MoveWheels")) {
-  echo "The method exists";
-} else {
-  echo "No";
-}
+
+$bmw = new Car();
+$bmw->MoveWheels();
+
+echo $bmw->wheels;
+
+
+// if(method_exists("Car", "MoveWheels")) {
+//   echo "The method exists";
+// } else {
+//   echo "No";
+// }
 
  ?>
