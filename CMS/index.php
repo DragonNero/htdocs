@@ -12,8 +12,12 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-
-            <?php $query = "SELECT * FROM posts";
+            <?php
+            $query = "SELECT * FROM posts";
+            if (isset($_POST['search']))  {
+              $search = $_POST['search'];
+              $query .= " WHERE post_tags LIKE '%$search%' ";
+            }
             $select_all_posts = mysqli_query($connection, $query);
 
             while($row = mysqli_fetch_assoc($select_all_posts)) {
