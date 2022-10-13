@@ -25,15 +25,11 @@ while($row = mysqli_fetch_assoc($select_all_categories)) {
   echo "<li><a href='#'>{$cat_title}</a></li>";
 
 }
-
-
                ?>
-
-
-                <!-- <li>
-                    <a href="#">About</a>
+                 <li>
+                    <a href="Admin">Admin</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#">Services</a>
                 </li>
                 <li>
