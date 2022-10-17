@@ -51,7 +51,6 @@
                             </div>
 
                           </form>
-                          <?php include "includes/edit_categories.php";?>
 
                           <?php
 
