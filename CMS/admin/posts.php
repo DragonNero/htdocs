@@ -15,7 +15,16 @@
               <small>Author</small>
           </h1>
 
-          <?php include "includes/view_all_posts.php"; ?>
+          <?php include "includes/view_all_posts.php";
+          if(isset($_GET['source']))){
+            $source = $_GET['source'];
+
+
+
+          }
+
+
+          ?>
 
 
         </div>
