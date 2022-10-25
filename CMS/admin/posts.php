@@ -18,39 +18,24 @@
           <?php
 
           if(isset($_GET['source'])){
-
-          $source = $_GET['source'];
-
+            $source = $_GET['source'];
           } else {
-
-          $source = '';
-
+            $source = '';
           }
 
           switch($source) {
-
-              case 'add_post';
-
-               include "includes/add_post.php";
-
+            case 'add_post';
+              include "includes/add_post.php";
               break;
-
-
-              case 'edit_post';
-
+            case 'edit_post';
               include "includes/edit_post.php";
               break;
-
-              case '200';
+            case '200';
               echo "NICE 200";
               break;
-
-              default:
-
+            default:
               include "includes/view_all_posts.php";
-
               break;
-    
           }
 
           ?>
