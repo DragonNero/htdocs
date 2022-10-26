@@ -1,9 +1,10 @@
 
 <?php
    if(isset($_POST['create_post'])) {
+     echo $_POST['title'];
 
             $post_title        = $_POST['title'];
-            $post_author       = $_POST['post_author'];
+            echo $post_author       = $_POST['post_author'];
             $post_category_id  = $_POST['post_category_id'];
             $post_status       = $_POST['post_status'];
 
@@ -51,9 +52,14 @@
           <input type="text" class="form-control" name="title">
       </div>
 
+      <div class="form-group">
+         <label for="title">Post Author</label>
+          <input type="text" class="form-control" name="post_author">
+      </div>
+
          <div class="form-group">
-       <label for="category">Category</label>
-       <select name="post_category" id="">
+       <label for="post_category_id">Post Category id</label>
+       <input type="text" class="form-control" name="post_category_id">
 
 <!-- //<?php
 
@@ -110,14 +116,6 @@
 
       </div>
 
-
-
-
-
-      <div class="form-group">
-         <label for="title">Post Author</label>
-          <input type="text" class="form-control" name="author">
-      </div>
 
 
 
