@@ -48,6 +48,9 @@
                     <li>
                         <a href="posts.php?source=add_post">Add post</a>
                     </li>
+                    <li>
+                        <a href="posts.php?source=cat">View all cats</a>
+                    </li>
                 </ul>
             </li>
             <li>

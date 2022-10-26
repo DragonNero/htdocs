@@ -33,6 +33,9 @@
             case '200';
               echo "NICE 200";
               break;
+            case 'cat';
+              include "includes/cat.php";
+              break;
             default:
               include "includes/view_all_posts.php";
               break;
