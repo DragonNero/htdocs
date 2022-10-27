@@ -1,5 +1,13 @@
 <?php
 
+function confirm($result)
+{
+  global $connection;
+  if(!$result){
+  die("Query is not working" . mysqli_error($connection));
+ }
+}
+
 function insert_categoties()
 {
   global $connection;
