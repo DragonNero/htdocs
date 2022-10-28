@@ -22,7 +22,7 @@ $select_posts_by_id = mysqli_query($connection, $query);
 }
 
 if (isset($_POST['update_post'])) {
-  var_dump($_POST);
+  // var_dump($_POST);
   $post_author = $_POST['post_author'];
   $post_title = $_POST['post_title'];
   $post_category_id = $_POST['post_category'];
@@ -34,17 +34,26 @@ if (isset($_POST['update_post'])) {
 
   move_uploaded_file($post_image_temp, "../images/$post_image" );
 
-  $query = "UPDATE posts SET ";
-  $query .= "post_title = '$post_title',";
-  $query .= "post_category_id = $post_category_id,";
-  $query .= "post_date = now(),";
-  $query .= "post_author = '$post_author',";
-  $query .= "post_status = '$post_status',";
-  $query .= "post_tags = '$post_tags',";
-  $query .= "content = '$content',";
-  $query .= "post_image = '$post_image' ";
-  $query .= "WHERE post_id = $editPostId";
-echo $query;
+  if (empty($post_image)) {
+    $query = "SELECT * FROM posts WHERE post_id =$editPostId ";
+    $selectImage = mysqli_query($connection,$query);
+
+    while($row = mysqli_fetch_array($selectImage)) {
+      $post_image = $row['post_image'];
+    }
+  }
+
+  $query = "UPDATE posts
+            SET post_title = '$post_title',
+                post_category_id = $post_category_id,
+                post_date = now(),
+                post_author = '$post_author',
+                post_status = '$post_status',
+                post_tags = '$post_tags',
+                content = '$content',
+                post_image = '$post_image'
+            WHERE post_id = $editPostId";
+// echo $query;
 $update_post = mysqli_query($connection,$query);
 
 confirm($update_post);
