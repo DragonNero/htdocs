@@ -15,6 +15,7 @@ $select_posts_by_id = mysqli_query($connection, $query);
      $post_status = $row['post_status'];
      $post_image = $row['post_image'];
      $post_tags = $row['post_tags'];
+     $content = $row['content'];
      $post_comment_count = $row['post_comment_count'];
      $post_date = $row['post_date'];
 }
@@ -81,7 +82,7 @@ $select_posts_by_id = mysqli_query($connection, $query);
 
   <div class="form-group">
      <label for="content">Post Content</label>
-     <textarea value="<?php echo $content; ?>" class="form-control "name="content" id="" cols="30" rows="10">
+     <textarea  class="form-control "name="content" id="" cols="30" rows="10"><?php echo $content; ?>
      </textarea>
   </div>
 
