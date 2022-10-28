@@ -4,7 +4,7 @@ if(isset($_GET['p_id'])) {
 
   $editPostId = $_GET['p_id'];
 
-$query = "SELECT * FROM posts";
+$query = "SELECT * FROM posts ";
 $select_posts_by_id = mysqli_query($connection, $query);
 
    while ($row = mysqli_fetch_assoc($select_posts_by_id)) {
@@ -69,9 +69,9 @@ $select_posts_by_id = mysqli_query($connection, $query);
 
 
 
-<div class="form-group">
-     <label for="post_image">Post Image</label>
-      <input value="<?php echo $post_image; ?>" type="file"  name="image">
+  <div class="form-group">
+    <img width="100" src="../images/<?php echo $post_image; ?>" alt="">
+    <input  type="file" name="image">
   </div>
 
   <div class="form-group">
