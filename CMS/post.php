@@ -19,7 +19,6 @@
             }
 
             $query = "SELECT * FROM posts WHERE post_id = $post_id ";
-            echo $query;
             $select_all_posts = mysqli_query($connection, $query);
 
             while($row = mysqli_fetch_assoc($select_all_posts)) {
