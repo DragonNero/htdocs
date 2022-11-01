@@ -21,6 +21,7 @@
                 $query = "SELECT * FROM posts WHERE post_id = $the_post_id ";
                 $select_all_posts_query = mysqli_query($connection, $query);
 
+
                 while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
                     $post_id      = $row['post_id'];
                     $post_title   = $row['post_title'];
@@ -92,10 +93,21 @@
                     if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
                         $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
                         $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved',now())";
+
+
                         $create_comment_query = mysqli_query($connection, $query);
                         if (!$create_comment_query) {
                             die('QUERY FAILED' . mysqli_error($connection));
                         }
+
+                        $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 WHERE post_id = $the_post_id ";
+                        mysqli_query($connection, $query);
+
+
+                        // $query = "SELECT * FROM posts WHERE post_id = $the_post_id ";
+                        // $select_all_posts_query = mysqli_query($connection, $query);
+                        //
+
                     }
                 }
 

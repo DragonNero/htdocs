@@ -14,7 +14,7 @@
     $post_tags         = $_POST['post_tags'];
     $content = $_POST['content'];
     $post_date         = date('d-m-y');
-    $post_comment_count = 4;
+    // $post_comment_count = 4;
 
 
 
@@ -22,7 +22,7 @@
 
     $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, content, post_tags, post_comment_count, post_status) ";
 
-    $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$content}','{$post_tags}', '{$post_comment_count}', '{$post_status}') ";
+    $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$content}','{$post_tags}', '{$post_status}') ";
 
     $create_post_query = mysqli_query($connection, $query);
 
@@ -81,7 +81,7 @@
 
 
             echo "<option value='$cat_id'>{$cat_title}</option>";
-            
+
 
         }
 
