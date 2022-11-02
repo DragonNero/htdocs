@@ -13,7 +13,7 @@
             <!-- Blog Entries Column -->
             <div class="col-md-8">
             <?php
-            $query = "SELECT * FROM posts";
+            $query = "SELECT * FROM posts ";
             if (isset($_POST['search']))  {
               $search = $_POST['search'];
               $query .= " WHERE post_tags LIKE '%$search%' ";
@@ -29,6 +29,16 @@
               $content = substr($row['content'], 0,100);
               $post_tags = $row['post_tags'];
               $post_comment_count = $row['post_comment_count'];
+              $post_status = $row['post_status'];
+
+
+              if($post_status !== 'published') {
+                echo "<h1 class='text-center'>No post sorry</h1>";
+
+
+              }else {
+
+
             ?>
             <h1 class="page-header">
                 Page Heading
@@ -52,7 +62,7 @@
 
             <hr>
             <?php
-            }
+            }}
 
              ?>
 
