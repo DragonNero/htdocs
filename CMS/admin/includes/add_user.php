@@ -52,35 +52,38 @@
 
 
       <div class="form-group">
-         <label for="title">Post Title</label>
-          <input type="text" class="form-control" name="title">
+         <label for="title">Firstname</label>
+          <input type="text" class="form-control" name="user_firstname">
       </div>
 
       <div class="form-group">
-         <label for="title">Post Author</label>
-          <input type="text" class="form-control" name="post_author">
+         <label for="title">Lastname</label>
+          <input type="text" class="form-control" name="user_lastname">
       </div>
 
+
+
+
          <div class="form-group">
-          <select class="" name="post_category">
+          <select class="" name="user_role">
 
        <label for="post_category">Post Category id</label>
        <input type="text" class="form-control" name="post_category">
 
       <?php
 
-        $query = "SELECT * FROM categories";
-        $select_categories = mysqli_query($connection,$query);
+        $query = "SELECT * FROM users ";
+        $select_users = mysqli_query($connection,$query);
 
-        //confirmQuery($select_categories);
-
-
-        while($row = mysqli_fetch_assoc($select_categories )) {
-        $cat_id = $row['cat_id'];
-        $cat_title = $row['cat_title'];
+        confirm($select_users);
 
 
-            echo "<option value='$cat_id'>{$cat_title}</option>";
+        while($row = mysqli_fetch_assoc($select_users )) {
+        $user_id = $row['user_id'];
+        $user_role = $row['user_role'];
+
+
+            echo "<option value='$user_id'>{$user_role}</option>";
 
 
         }
@@ -93,9 +96,7 @@
       </div>
 
 
-       <div class="form-group">
-       <label for="users">Users</label>
-       <select name="post_user" id="">
+
 
 <?php
 
@@ -118,44 +119,27 @@
 ?>
 
 
-       </select>
-
-      </div>
 
 
+<div class="form-group">
+   <label for="title">Username</label>
+    <input type="text" class="form-control" name="user_name">
+</div>
 
 
-       <div class="form-group">
-         <select name="post_status" id="">
-             <option value="draft">Post Status</option>
-             <option value="published">Published</option>
-             <option value="draft">Draft</option>
-         </select>
-      </div>
+<div class="form-group">
+   <label for="title">Email</label>
+    <input type="email" class="form-control" name="user_email">
+</div>
 
+<div class="form-group">
+   <label for="title">Password</label>
+    <input type="email" class="form-control" name="user_password">
+</div>
 
-
-    <div class="form-group">
-         <label for="post_image">Post Image</label>
-          <input type="file"  name="image">
-      </div>
-
-      <div class="form-group">
-         <label for="post_tags">Post Tags</label>
-          <input type="text" class="form-control" name="post_tags">
-      </div>
-
-      <div class="form-group">
-         <label for="content">Post Content</label>
-         <textarea class="form-control "name="content" id="" cols="30" rows="10">
-         </textarea>
-      </div>
-
-
-
-       <div class="form-group">
-          <input class="btn btn-primary" type="submit" name="create_post" value="Publish Post">
-      </div>
+<div class="form-group">
+    <input class="btn btn-primary" type="submit" name="create_user" value="Add User">
+</div>
 
 
 </form>
