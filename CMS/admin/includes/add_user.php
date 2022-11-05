@@ -1,32 +1,32 @@
 
 <?php
-   if(isset($_POST['create_post'])) {
+   if(isset($_POST['create_user'])) {
 
-    $post_title        = $_POST['title'];
-    $post_author       = $_POST['post_author'];
-    $post_category_id  = $_POST['post_category'];
-    $post_status       = $_POST['post_status'];
+    $user_firstname       = $_POST['user_firstname'];
+    $user_lastname  = $_POST['user_lastname'];
+    $user_role       = $_POST['user_role'];
 
-    $post_image        = $_FILES['image']['name'];
-    $post_image_temp   = $_FILES['image']['tmp_name'];
-
-
-    $post_tags  = $_POST['post_tags'];
-    $content    = $_POST['content'];
-    $post_date  = date('d-m-y');
+    // $post_image        = $_FILES['image']['name'];
+    // $post_image_temp   = $_FILES['image']['tmp_name'];
 
 
+    $user_name  = $_POST['user_name'];
+    $user_email    = $_POST['user_email'];
+    $user_password    = $_POST['user_password'];
+    // $post_date  = date('d-m-y');
 
 
-    move_uploaded_file($post_image_temp, "../images/$post_image" );
 
-    $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date, post_image, content, post_tags, post_status) ";
 
-    $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$content}','{$post_tags}', '{$post_status}') ";
+    // move_uploaded_file($post_image_temp, "../images/$post_image" );
 
-    $create_post_query = mysqli_query($connection, $query);
+    $query = "INSERT INTO users(user_firstname, user_lastname, user_role, user_name, user_email, user_password) ";
 
-    confirm($create_post_query);
+    $query .= "VALUES('{$user_firstname}','{$user_lastname}','{$user_role}','{$user_name}','{$user_email}', '{$user_password}') ";
+
+    $create_user_query = mysqli_query($connection, $query);
+
+    confirm($create_user_query);
 
    }
    //
@@ -62,8 +62,9 @@
       </div>
 
       <div class="form-group">
+        <label for="title">User Role</label>
         <select class="form-control" name="user_role">
-          <label for="title">User Role</label>
+          <option value="subscriber">Select Options</option>
           <option value="admin">Admin</option>
           <option value="subscriber">Subscriber</option>
 
@@ -89,10 +90,10 @@
         //
         // while($row = mysqli_fetch_assoc($select_users)) {
         // $user_id = $row['user_id'];
-        // $username = $row['username'];
+        // $user_name = $row['user_name'];
         //
         //
-        //     echo "<option value='{$username}'>{$username}</option>";
+        //     echo "<option value='{$user_name}'>{$user_name}</option>";
         //
         //
         // }
@@ -103,7 +104,7 @@
 
 
 <div class="form-group">
-   <label for="title">Username</label>
+   <label for="title">user_name</label>
     <input type="text" class="form-control" name="user_name">
 </div>
 
@@ -115,7 +116,7 @@
 
 <div class="form-group">
    <label for="title">Password</label>
-    <input type="email" class="form-control" name="user_password">
+    <input type="password" class="form-control" name="user_password">
 </div>
 
 <div class="form-group">
