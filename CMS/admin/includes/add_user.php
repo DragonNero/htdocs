@@ -61,39 +61,20 @@
           <input type="text" class="form-control" name="user_lastname">
       </div>
 
+      <div class="form-group">
+        <select class="form-control" name="user_role">
+          <label for="title">User Role</label>
+          <option value="admin">Admin</option>
+          <option value="subscriber">Subscriber</option>
 
-
-
-         <div class="form-group">
-          <select class="" name="user_role">
-
-       <label for="post_category">Post Category id</label>
-       <input type="text" class="form-control" name="post_category">
-
-      <?php
-
-        $query = "SELECT * FROM users ";
-        $select_users = mysqli_query($connection,$query);
-
-        confirm($select_users);
-
-
-        while($row = mysqli_fetch_assoc($select_users )) {
-        $user_id = $row['user_id'];
-        $user_role = $row['user_role'];
-
-
-            echo "<option value='$user_id'>{$user_role}</option>";
-
-
-        }
-
-      ?>
-
-
-       </select>
+        </select>
 
       </div>
+
+
+
+
+
 
 
 

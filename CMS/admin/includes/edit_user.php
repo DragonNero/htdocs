@@ -132,6 +132,39 @@ confirm($update_post);
       <input value="<?php echo $post_tags; ?>" type="text" class="form-control" name="post_tags">
   </div>
 
+
+
+  <div class="form-group">
+   <select class="" name="user_role">
+
+<label for="post_category">Post Category id</label>
+<input type="text" class="form-control" name="post_category">
+
+<?php
+
+ $query = "SELECT * FROM users ";
+ $select_users = mysqli_query($connection,$query);
+
+ confirm($select_users);
+
+
+ while($row = mysqli_fetch_assoc($select_users )) {
+ $user_id = $row['user_id'];
+ $user_role = $row['user_role'];
+
+
+     echo "<option value='$user_id'>{$user_role}</option>";
+
+
+ }
+
+?>
+
+
+</select>
+
+</div>
+
   <div class="form-group">
      <label for="content">Post Content</label>
      <textarea  class="form-control "name="content" id="" cols="30" rows="10"><?php echo $content; ?>
