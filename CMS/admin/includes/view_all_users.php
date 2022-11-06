@@ -8,6 +8,7 @@
         <option value="">Select Options</option>
         <option value="change_to_admin">Change to admin</option>
         <option value="change_to_subscriber">Change to subscriber</option>
+        <option value="delete">Edit</option>
         <option value="delete">Delete</option>
         </select>
 
@@ -29,6 +30,11 @@
                         <th>Lastname</th>
                         <th>Email</th>
                         <th>Role</th>
+                        <th>Edit to admin</th>
+                        <th>Edit to subscriber</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+
                     </tr>
                 </thead>
 
@@ -101,6 +107,7 @@
 
         echo "<td><a href='users.php?change_to_admin=$user_id'>Change to admin</a></td>";
         echo "<td><a href='users.php?change_to_subscriber=$user_id'>Change to subscriber</a></td>";
+        echo "<td><a href='users.php?source=edit_user&edit_user={$user_id}'>Edit</a></td>";
         echo "<td><a href='users.php?delete=$user_id'>Delete</a></td>";
         echo "</tr>";
 

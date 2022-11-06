@@ -32,14 +32,7 @@ if (isset($_POST['update_post'])) {
 
   move_uploaded_file($post_image_temp, "../images/$post_image" );
 
-  if (empty($post_image)) {
-    $query = "SELECT * FROM posts WHERE post_id =$editPostId ";
-    $selectImage = mysqli_query($connection,$query);
 
-    while($row = mysqli_fetch_array($selectImage)) {
-      $post_image = $row['post_image'];
-    }
-  }
 
   $query = "UPDATE posts
             SET post_title = '$post_title',
@@ -50,7 +43,19 @@ if (isset($_POST['update_post'])) {
                 post_tags = '$post_tags',
                 content = '$content',
                 post_image = '$post_image'
-            WHERE post_id = $editPostId";
+            WHERE post_id = $editPostId ";
+
+
+  if (empty($post_image)) {
+    $query = "SELECT * FROM posts WHERE post_id = $editPostId ";
+    $selectImage = mysqli_query($connection,$query);
+
+    while($row = mysqli_fetch_array($selectImage)) {
+      $post_image = $row['post_image'];
+    }
+  }
+
+
 // echo $query;
 $update_post = mysqli_query($connection,$query);
 
