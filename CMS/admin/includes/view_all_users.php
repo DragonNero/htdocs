@@ -6,8 +6,8 @@
 
         <select class="form-control" name="bulk_options" id="">
         <option value="">Select Options</option>
-        <option value="approved">Approve</option>
-        <option value="unapproved">Unapprove</option>
+        <option value="change_to_admin">Change to admin</option>
+        <option value="change_to_subscriber">Change to subscriber</option>
         <option value="delete">Delete</option>
         </select>
 
@@ -99,8 +99,8 @@
 
 
 
-        echo "<td><a href='users.php?approve='>Approve</a></td>";
-        echo "<td><a href='users.php?unapprove='>Unapprove</a></td>";
+        echo "<td><a href='users.php?change_to_admin=$user_id'>Change to admin</a></td>";
+        echo "<td><a href='users.php?change_to_subscriber=$user_id'>Change to subscriber</a></td>";
         echo "<td><a href='users.php?delete=$user_id'>Delete</a></td>";
         echo "</tr>";
 
@@ -121,31 +121,31 @@
 
 <?php
 
-// if(isset($_GET['approve'])){
-//
-//     $the_comment_id = $_GET['approve'];
-//
-//     $query = "UPDATE users SET comment_status = 'approved' WHERE comment_id = $the_comment_id   ";
-//     $approve_comment_query = mysqli_query($connection, $query);
-//     header("Location: comments.php");
-//
-//
-// }
+if(isset($_GET['change_to_admin'])){
+
+    $the_user_id = $_GET['change_to_admin'];
+
+    $query = "UPDATE users SET user_role = 'admin' WHERE user_id = $the_user_id   ";
+    $change_userrole_query = mysqli_query($connection, $query);
+    header("Location: users.php");
+
+
+}
 
 
 
 
 
-// if(isset($_GET['unapprove'])){
-//
-//     $the_comment_id = $_GET['unapprove'];
-//
-//     $query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = $the_comment_id ";
-//     $unapprove_comment_query = mysqli_query($connection, $query);
-//     header("Location: comments.php");
-//
-//
-// }
+if(isset($_GET['change_to_subscriber'])){
+
+    $the_user_id = $_GET['change_to_subscriber'];
+
+    $query = "UPDATE users SET user_role = 'subscriber' WHERE user_id = $the_user_id ";
+    $change_userrole_query = mysqli_query($connection, $query);
+    header("Location: users.php");
+
+
+}
 
 
 
