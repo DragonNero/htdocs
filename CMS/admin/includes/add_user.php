@@ -6,9 +6,9 @@
     $user_lastname  = $_POST['user_lastname'];
     $user_role       = $_POST['user_role'];
 
-    // $post_image        = $_FILES['image']['name'];
-    // $post_image_temp   = $_FILES['image']['tmp_name'];
-
+    // $user_image        = $_FILES['user_image']['name'];
+    // $user_image_temp   = $_FILES['user_image']['tmp_name'];
+    //
 
     $user_name  = $_POST['user_name'];
     $user_email    = $_POST['user_email'];
@@ -18,7 +18,7 @@
 
 
 
-    // move_uploaded_file($post_image_temp, "../images/$post_image" );
+    move_uploaded_file($user_image_temp, "../images/$user_image" );
 
     $query = "INSERT INTO users(user_firstname, user_lastname, user_role, user_name, user_email, user_password) ";
 
@@ -71,6 +71,11 @@
         </select>
 
       </div>
+
+      <!-- <div class="form-group">
+           <label for="post_image">Post Image</label>
+            <input type="file"  name="user_image">
+      </div> -->
 
 
 

@@ -98,10 +98,10 @@
 
 
 
-        
-        echo "<td><a href='comments.php?approve='>Approve</a></td>";
-        echo "<td><a href='comments.php?unapprove='>Unapprove</a></td>";
-        echo "<td><a href='comments.php?delete='>Delete</a></td>";
+
+        echo "<td><a href='users.php?approve='>Approve</a></td>";
+        echo "<td><a href='users.php?unapprove='>Unapprove</a></td>";
+        echo "<td><a href='users.php?delete=$user_id'>Delete</a></td>";
         echo "</tr>";
 
     }
@@ -121,42 +121,42 @@
 
 <?php
 
-if(isset($_GET['approve'])){
-
-    $the_comment_id = $_GET['approve'];
-
-    $query = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = $the_comment_id   ";
-    $approve_comment_query = mysqli_query($connection, $query);
-    header("Location: comments.php");
-
-
-}
-
-
+// if(isset($_GET['approve'])){
+//
+//     $the_comment_id = $_GET['approve'];
+//
+//     $query = "UPDATE users SET comment_status = 'approved' WHERE comment_id = $the_comment_id   ";
+//     $approve_comment_query = mysqli_query($connection, $query);
+//     header("Location: comments.php");
+//
+//
+// }
 
 
 
-if(isset($_GET['unapprove'])){
-
-    $the_comment_id = $_GET['unapprove'];
-
-    $query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = $the_comment_id ";
-    $unapprove_comment_query = mysqli_query($connection, $query);
-    header("Location: comments.php");
 
 
-}
+// if(isset($_GET['unapprove'])){
+//
+//     $the_comment_id = $_GET['unapprove'];
+//
+//     $query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = $the_comment_id ";
+//     $unapprove_comment_query = mysqli_query($connection, $query);
+//     header("Location: comments.php");
+//
+//
+// }
 
 
 
 
 if(isset($_GET['delete'])){
 
-    $the_comment_id = $_GET['delete'];
+    $the_user_id = $_GET['delete'];
 
-    $query = "DELETE FROM comments WHERE comment_id = {$the_comment_id} ";
+    $query = "DELETE FROM users WHERE user_id = {$the_user_id} ";
     $delete_query = mysqli_query($connection, $query);
-    header("Location: comments.php");
+    header("Location: users.php");
 
 
 }
