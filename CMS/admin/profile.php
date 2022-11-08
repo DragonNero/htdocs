@@ -18,8 +18,15 @@
     $user_image         = $row['user_image'];
     $user_role          = $row['user_role'];
   }
-
 }
+
+
+
+
+
+
+
+
 
 // $_SESSION['user_name'] = $db_username;
 // $_SESSION['user_firstname'] = $db_firstname;
@@ -28,6 +35,48 @@
 
 
  ?>
+
+
+<?php
+if(isset($_POST['update_user'])) {
+
+ $user_firstname       = $_POST['user_firstname'];
+ $user_lastname  = $_POST['user_lastname'];
+ $user_role       = $_POST['user_role'];
+
+ // $user_image        = $_FILES['user_image']['name'];
+ // $user_image_temp   = $_FILES['user_image']['tmp_name'];
+ //
+
+ $user_name  = $_POST['user_name'];
+ $user_email    = $_POST['user_email'];
+ $user_password    = $_POST['user_password'];
+ // $post_date  = date('d-m-y');
+
+
+
+
+
+ $query = "UPDATE users
+           SET user_firstname = '$user_firstname',
+               user_lastname = '$user_lastname',
+               user_role = '$user_role',
+               user_name = '$user_name',
+               user_email = '$user_email',
+               user_password = '$user_password'
+           WHERE user_name = '$user_name' ";
+
+
+ $edit_user_query = mysqli_query($connection, $query);
+
+
+
+}
+ ?>
+
+
+
+
 
 <div id="wrapper">
   <div id="page-wrapper">
@@ -82,38 +131,7 @@
 
       </div>
 
-      <!-- <div class="form-group">
-           <label for="post_image">Post Image</label>
-            <input type="file"  name="user_image">
-      </div> -->
 
-
-
-
-
-
-
-
-
-<?php
-
-        // $users_query = "SELECT * FROM users";
-        // $select_users = mysqli_query($connection,$users_query);
-        //
-        // // confirmQuery($select_users);
-        //
-        //
-        // while($row = mysqli_fetch_assoc($select_users)) {
-        // $user_id = $row['user_id'];
-        // $user_name = $row['user_name'];
-        //
-        //
-        //     echo "<option value='{$user_name}'>{$user_name}</option>";
-        //
-        //
-        // }
-
-?>
 
 
 
@@ -135,7 +153,7 @@
 </div>
 
 <div class="form-group">
-    <input class="btn btn-primary" type="submit" name="edit_user" value="Update Profile">
+    <input class="btn btn-primary" type="submit" name="update_user" value="Update Profile">
 </div>
 
 
