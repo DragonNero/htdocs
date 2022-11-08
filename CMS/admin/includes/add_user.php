@@ -18,7 +18,7 @@
 
 
 
-    move_uploaded_file($user_image_temp, "../images/$user_image" );
+    // move_uploaded_file($user_image_temp, "../images/$user_image" );
 
     $query = "INSERT INTO users(user_firstname, user_lastname, user_role, user_name, user_email, user_password) ";
 
@@ -27,6 +27,7 @@
     $create_user_query = mysqli_query($connection, $query);
 
     confirm($create_user_query);
+    echo "User Created" . " " . "<a href='users.php'>View users</a>";
 
    }
    //
