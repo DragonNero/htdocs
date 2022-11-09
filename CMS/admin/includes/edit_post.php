@@ -119,9 +119,14 @@ confirm($update_post);
 
    <div class="form-group">
      <select name="post_status" id="">
-         <option value="draft">Post Status</option>
-         <option value="published">Published</option>
-         <option value="draft">Draft</option>
+         <option value="<?php echo $post_status;?>"><?php echo $post_status; ?></option>
+
+         <?php if ($post_status == 'published') {
+           echo "<option value='draft'>draft</option>";
+         } else {
+           echo "<option value='published'>publish</option>";
+         }
+          ?>
      </select>
   </div>
 
