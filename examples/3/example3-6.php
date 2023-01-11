@@ -1,7 +1,7 @@
 <?php
   $author = "Steve Ballmer";
 
-  echo "Developers, Developers, developers, developers, developers,
+  print "Developers, Developers\n, developers, developers, developers,
   developers, developers, developers, developers!
 
   - $author.";
